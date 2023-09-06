@@ -54,9 +54,12 @@
               <div class="board_list">
                 <table>
                   {% for list in postlist %}
-                      <ul>
-                          <li><a href="{{list.pk}}/">{{list.title}}</a></li>
-                      </ul>
+                    <ul>
+                      <li><a href="{{list.pk}}/">제목: {{list.title}} </a></li>
+                      <li>글쓴이: {{ list.writer }}</li>
+                      <li>작성일: {{ list.date }}</li>
+                      <li>조회수: {{ list.count }}</li>
+                    </ul>
                   {% endfor %}
                 </table>
               </div>
@@ -72,7 +75,7 @@
                 <a href="#" class="bt last">>></a>
               </div>
               <div class="bt_wrap">
-                <a type='button' onclick="redirect_write()" class="on" href="new_post/" >등록</a>
+                <a type='button' onclick="redirect_write()" class="on" href="post_create/" >등록</a>
                 <!--<a href="#">수정</a>-->
               </div>
             </div>

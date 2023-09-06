@@ -16,7 +16,7 @@ urlpatterns = [
     # URL:80/contact/숫자로 접속하면 게시글-세부페이지(posting)
     path('contact/<int:pk>/',posting, name="posting"),
 
-    path('contact/new_post/', new_post),
+    path('contact/post_create/', post_create),
 
     path('contact/<int:pk>/remove/', remove_post),
 ]

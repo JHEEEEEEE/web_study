@@ -52,8 +52,10 @@
               <div class="board_write">
                 <form method="POST">
                   {% csrf_token %}
-                  제목<br>
-                  <input type="text" name="title"><br>
+                  <br> 날짜: <input type="date" name="date" value="{{ form.date.value|default:'' }}"><br>
+                  <br> 제목: <input type="text" name="title"><br><br>
+                  아이디: <input type="text" name="writer">
+                  비밀번호: <input type="password" name="password"><br><br>
                   내용<br>
                   <textarea rows="10" cols="50" name="contents"></textarea><br>
                   <input type="file" name="mainphoto"><br>
