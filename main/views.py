@@ -25,13 +25,13 @@ def new_post(request):
     if request.method == 'POST':
         if request.POST['mainphoto']:
             new_article=Post.objects.create(
-                postname=request.POST['postname'],
+                title=request.POST['title'],
                 contents=request.POST['contents'],
                 mainphoto=request.POST['mainphoto'],
             )
         else:
             new_article=Post.objects.create(
-                postname=request.POST['postname'],
+                title=request.POST['title'],
                 contents=request.POST['contents'],
                 mainphoto=request.POST['mainphoto'],
             )
