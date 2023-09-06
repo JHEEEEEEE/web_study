@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404 
 # View에 Model(Post 게시글) 가져오기
 from .models import Post
 from .forms import PostForm

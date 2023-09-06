@@ -5,7 +5,7 @@ from datetime import date
 # 게시글(Post)엔 제목(title), 내용(contents)이 존재합니다
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    writer = models.CharField(max_length=30, default="Anontmous")
+    writer = models.CharField(max_length=30, default="Anonymous")
     password = models.CharField(max_length=30, blank=True)
     date = models.DateField(auto_now_add=True)
     count = models.IntegerField(default=0)
