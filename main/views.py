@@ -30,14 +30,17 @@ def posting(request, pk):
     return render(request, 'main/posting.html', {'post':post})
 
 def post_create(request):
-      if request.method == 'POST':
+    if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('/contact')
-      else:
-          form = PostForm()
-      return render(request, 'main/post_create.html', {'form': form})
+            # 폼을 저장하기 전에 모델 인스턴스를 가져와서 추가 데이터를 설정할 수 있습니다.
+            post = form.save(commit=False)  # 커밋하지 않은 상태로 모델 인스턴스 생성
+            post.password = request.POST.get('password')  # 비밀번호 설정
+            post.save()  # 이제 모델 인스턴스를 저장
+            return redirect('contact')  # URL 패턴 이름 사용 (reverse 대신)
+    else:
+        form = PostForm()
+    return render(request, 'main/post_create.html', {'form': form})
 
 def remove_post(request, pk):
     post = Post.objects.get(pk=pk)
