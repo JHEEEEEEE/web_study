@@ -19,6 +19,8 @@ urlpatterns = [
     path('contact/post_create/', post_create),
 
     path('contact/<int:pk>/remove/', remove_post),
+
+    path('index/info/', info, name='info')
 ]
 
 # 이미지 URL 설정

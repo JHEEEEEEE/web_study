@@ -9,6 +9,11 @@ from django.http import HttpResponseRedirect
 def index(request):
     return render(request, 'main/index.html')
 
+
+# index.html 페이지를 부르는 index 함수
+def info(request):
+    return render(request, 'main/info.html')
+
 # contact.html 페이지를 부르는 blog 함수
 def contact(request):
     # 모든 Post를 가져와 postlist에 저장합니다
