@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from .forms import PostForm
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 # index.html 페이지를 부르는 index 함수
@@ -38,12 +39,12 @@ def post_create(request):
           form = PostForm()
       return render(request, 'main/post_create.html', {'form': form})
 
-
 def remove_post(request, pk):
     post = Post.objects.get(pk=pk)
     if request.method == 'POST':
+        # 게시물을 삭제합니다.
         post.delete()
-        return redirect('/contact/')
+        return HttpResponseRedirect(reverse('contact'))
     return render(request, 'main/remove_post.html', {'Post': post})
 
 def posting(request, pk):
