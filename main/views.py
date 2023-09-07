@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 # View에 Model(Post 게시글) 가져오기
 from .models import Post
 from .forms import PostForm
+from django.http import HttpResponseRedirect
 
 
 # index.html 페이지를 부르는 index 함수
@@ -39,3 +40,18 @@ def remove_post(request, pk):
         post.delete()
         return redirect('/contact/')
     return render(request, 'main/remove_post.html', {'Post': post})
+
+def posting(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    if request.method == 'POST':
+        entered_password = request.POST.get('password')
+        if entered_password == post.password:
+            # 비밀번호가 일치하는 경우 게시물 내용을 보여줌
+            return render(request, 'main/posting.html', {'post': post})
+        else:
+            # 비밀번호가 일치하지 않는 경우 에러 메시지 표시
+            error_message = "비밀번호가 일치하지 않습니다."
+            return render(request, 'main/post_password.html', {'post': post, 'error_message': error_message})
+
+    return render(request, 'main/post_password.html', {'post': post})
