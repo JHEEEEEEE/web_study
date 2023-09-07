@@ -121,10 +121,6 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-<<<<<<< HEAD
-
-=======
->>>>>>> bc3e7ec94fb2ac3c17c6b7ebe1a5251282ac65e0
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
