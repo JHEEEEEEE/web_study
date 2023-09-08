@@ -60,16 +60,17 @@
           <div class="board_write">
             <form method="POST" id="firstForm" action="{% url 'post_create' %}">
               {% csrf_token %}
-              <br> 제목: <input type="text" name="title"><br><br>
-              아이디: <input type="text" name="writer">
-              비밀번호: <input type="password" name="password"><br><br>
+              <br> 제목: <input type="text" name="title" style="width:54%"><br><br>
+              아이디: <input type="text" name="writer" style="width:20%"><br><br>
+              비밀번호: <input type="password" name="password" style="width:20%"><br><br>
+              <hr>  
               내용<br>
-              <textarea rows="10" cols="50" name="contents"></textarea><br>
+              <textarea rows="10" name="contents" style="width:100%"></textarea><br>
               <input type="file" name="mainphoto"><br>
 
           </div>
           <div class="bt_wrap">
-            <button type="submit" class="btn btn-success">글 등록</button> 
+            <button type="submit" class="btn btn-success" value="등록">글 등록</button> 
             <a type='button' onclick="redirect_contact()">취소</a>
           </div>
           </form>
