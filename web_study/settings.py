@@ -129,3 +129,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+PAGINATION_PAGE_SIZE = 5  # 예: 페이지당 5개 항목 표시

@@ -1,138 +1,172 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="문의하기" />
-    <meta name="description" content="불편내용, 건의사항 등에 대한 신속한 처리를 위해 문의사항을 남겨주세요." />
-    <meta name="author" content="일하시조" />
-    <title>문의하기</title>
-    <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico" />
-    <link rel="stylesheet" href="/static/css.css">
-    <link rel="stylesheet" href="/static/style_forcontact.css">
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="keywords" content="문의하기" />
+  <meta name="description" content="불편내용, 건의사항 등에 대한 신속한 처리를 위해 문의사항을 남겨주세요." />
+  <meta name="author" content="일하시조" />
+  <title>문의하기</title>
+  <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico" />
+  <link rel="stylesheet" href="/static/css.css">
+  <link rel="stylesheet" href="/static/style_forcontact.css">
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
 
 </head>
-<body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" type='button' onclick="redirect_index()">일하시조</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" type='button' onclick="redirect_contact()">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <section class="about-section text-center" id="about">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8">
-                    <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                    <h2 class="text-white mb-4">Subscribe to receive updates!</h2>
-                    <p class="text-white-50">
-                        불편내용, 건의사항 등에 대한 신속한 처리를 위해 문의사항을 남겨주세요.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="projects-section bg-light" id="projects">
-        <div class="container px-4 px-lg-5">
-          <div class="board_wrap">
-            <div class="board_title">
-              <strong>문의사항</strong>
-              <p>문의사항을 빠르고 정확하게 안내해드립니다.</p>
-            </div>
-            <div class="board_list_wrap">
-              <div class="board_list">
-                <table>
-                  {% for list in postlist %}
-                    <ul>
-                      <br>
-                      <li style="font-size: 30px;"><a href="{{list.pk}}/" style="text-decoration: none;"> 제목: {{list.title}} </a></li>
-                      <li>글쓴이: {{ list.writer }}</li>
-                      <li>작성일: {{ list.date }}</li>
-                      <hr>
-                    </ul>
-                  {% endfor %}
-                </table>
-              </div>
-              <div class="board_page">
-                <a href="#" class="bt first"><<</a>
-                <a href="#" class="bt prev"><</a>
-                <a href="#" class="num on">1</a>
-                <a href="#" class="num">2</a>
-                <a href="#" class="num">3</a>
-                <a href="#" class="num">4</a>
-                <a href="#" class="num">5</a>
-                <a href="#" class="bt next">></a>
-                <a href="#" class="bt last">>></a>
-              </div>
-              <div class="bt_wrap">
-                <a type='button' onclick="redirect_write()" class="on" href="post_create/" >등록</a>
-                <!--<a href="#">수정</a>-->
-              </div>
+<body id="page-top">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container px-4 px-lg-5">
+      <a class="navbar-brand" type='button' onclick="redirect_index()">일하시조</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" type='button' onclick="redirect_contact()">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="about-section text-center" id="about">
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-8">
+          <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+          <h2 class="text-white mb-4">Subscribe to receive updates!</h2>
+          <p class="text-white-50">
+            불편내용, 건의사항 등에 대한 신속한 처리를 위해 문의사항을 남겨주세요.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section bg-light" id="projects">
+    <div class="container px-4 px-lg-5">
+      <div class="board_wrap">
+        <div class="board_title">
+          <strong>문의사항</strong>
+          <p>문의사항을 빠르고 정확하게 안내해드립니다.</p>
+        </div>
+        <div class="board_list_wrap">
+          <div class="board_list">
+            <table>
+              {% for post in postlist %}
+              <ul>
+                <br>
+                <li style="font-size: 30px;"><a href="{{post.pk}}/" style="text-decoration: none;"> 제목: {{post.title}}
+                  </a></li>
+                <li>글쓴이: {{ post.writer }}</li>
+                <li>작성일: {{ post.date }}</li>
+                <hr>
+              </ul>
+              {% endfor %}
+            </table>
+          </div>
+          <!-- 페이징처리 시작 -->
+          <ul class="pagination justify-content-center">
+            <!-- 이전페이지 -->
+            {% if postlist.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ postlist.previous_page_number }}">이전</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+            </li>
+            {% endif %}
+            <!-- 페이지리스트 -->
+            {% for page_number in postlist.paginator.page_range %}
+            {% if page_number == postlist.number %}
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            <!-- 다음페이지 -->
+            {% if postlist.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ postlist.next_page_number }}">다음</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+            </li>
+            {% endif %}
+          </ul>
+          <!-- 페이징처리 끝 -->
+
+          <div class="bt_wrap">
+            <a type='button' onclick="redirect_write()" class="on" href="post_create/">등록</a>
+            <!--<a href="#">수정</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section bg-black">
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">Address</h4>
+              <hr class="my-4 mx-auto" />
+              <div class="small text-black-50">홍익대학교 문정도서관,</div>
+              <div class="small text-black-50">충청남도 연기군 조치원읍 토골고개길 47</div>
             </div>
           </div>
         </div>
-    </section>
-    
-    <section class="contact-section bg-black">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5">
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <div class="card py-4 h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                            <h4 class="text-uppercase m-0">Address</h4>
-                            <hr class="my-4 mx-auto" />
-                            <div class="small text-black-50">홍익대학교 문정도서관,</div>
-                            <div class="small text-black-50">충청남도 연기군 조치원읍 토골고개길 47</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <div class="card py-4 h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-envelope text-primary mb-2"></i>
-                            <h4 class="text-uppercase m-0">Email</h4>
-                            <hr class="my-4 mx-auto" />
-                            <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <div class="card py-4 h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                            <h4 class="text-uppercase m-0">Phone</h4>
-                            <hr class="my-4 mx-auto" />
-                            <div class="small text-black-50">+1 (555) 000-0000</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-envelope text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">Email</h4>
+              <hr class="my-4 mx-auto" />
+              <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
             </div>
-            <div class="social d-flex justify-content-center">
-                <a class="mx-2" href="#page-top">TOP<i class=""></i></a>
-            </div>
+          </div>
         </div>
-    </section>
-    
-    <footer class="footer bg-black small text-center text-white-50">
-      <div class="container px-4 px-lg-5">2023 08 08 ~ </div>
-    </footer>
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card py-4 h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-mobile-alt text-primary mb-2"></i>
+              <h4 class="text-uppercase m-0">Phone</h4>
+              <hr class="my-4 mx-auto" />
+              <div class="small text-black-50">+1 (555) 000-0000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social d-flex justify-content-center">
+        <a class="mx-2" href="#page-top">TOP<i class=""></i></a>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    <script src="/static/scripts.js"></script>
-    <script type="text/javascript" src="/static/redirect.js"></script> 
+  <footer class="footer bg-black small text-center text-white-50">
+    <div class="container px-4 px-lg-5">2023 08 08 ~ </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  <script src="/static/scripts.js"></script>
+  <script type="text/javascript" src="/static/redirect.js"></script>
 </body>
+
 </html>

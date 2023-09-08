@@ -4,6 +4,8 @@ from .models import Post
 from .forms import PostForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.conf import settings
 
 
 # index.html 페이지를 부르는 index 함수
@@ -15,12 +17,35 @@ def index(request):
 def info(request):
     return render(request, 'main/info.html')
 
-# contact.html 페이지를 부르는 blog 함수
+# contact.html 페이지를 부르는 contact 함수
 def contact(request):
     # 모든 Post를 가져와 postlist에 저장합니다
     postlist = Post.objects.all()
-    # contact.html 페이지를 열 때, 모든 Post인 postlist도 같이 가져옵니다 
-    return render(request, 'main/contact.html', {'postlist':postlist})
+   
+    # 페이지당 표시할 항목 수
+    page_size = settings.PAGINATION_PAGE_SIZE
+
+    # Paginator를 사용하여 Post 리스트를 페이지별로 나눕니다.
+    paginator = Paginator(postlist, page_size)
+
+    # 현재 페이지 번호를 가져옵니다.
+    page = request.GET.get('page')
+
+    try:
+        # 현재 페이지에 해당하는 항목을 가져옵니다.
+        postlist = paginator.page(page)
+    except PageNotAnInteger:
+        # 페이지 번호가 정수가 아닌 경우, 첫 번째 페이지를 가져옵니다.
+        postlist = paginator.page(1)
+    except EmptyPage:
+        # 페이지가 비어있는 경우, 마지막 페이지를 가져옵니다.
+        postlist = paginator.page(paginator.num_pages)
+
+    # contact.html 페이지를 열 때, 모든 Post인 postlist도 같이 가져옵니다.
+    return render(request, 'main/contact.html', {'postlist': postlist})
+
+
+
 
 # contact의 게시글(posting)을 부르는 posting 함수
 def posting(request, pk):
