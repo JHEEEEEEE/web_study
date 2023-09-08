@@ -66,7 +66,7 @@
                 <li style="font-size: 30px;"><a href="{{post.pk}}/" style="text-decoration: none;"> 제목: {{post.title}}
                   </a></li>
                 <li>글쓴이: {{ post.writer }}</li>
-                <li>작성일:  {{ post.date|date:"Y-m-d H:i:s" }}</li>
+                <li>작성일:  {{ post.date|date:"Y년 m월 d일 A h시 i분" }}</li>
                 <hr>
               </ul>
               {% endfor %}

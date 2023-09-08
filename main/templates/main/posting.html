@@ -64,7 +64,7 @@
           <div class="board_list_wrap">
             <div class="board_list">
               <span style="font-size: 35px; padding-left: 20px;">제목: {{post.title}} </span>
-              <p style="font-size: 15px; text-align: right;">글쓴이: {{ post.writer }} 작성일: {{ post.date }}</p>
+              <p style="font-size: 15px; text-align: right;">글쓴이: {{ post.writer }} 작성일: {{ post.date|date:"Y년 m월 d일 A h시 i분" }}</p>
               <hr>
               <p style="padding-left: 20px; padding-bottom:200px" >내용: {{post.contents}}</p>
 
