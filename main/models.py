@@ -7,11 +7,15 @@ class Post(models.Model):
     title = models.CharField(max_length=50)
     writer = models.CharField(max_length=30, default="Anonymous")
     password = models.CharField(max_length=30, blank=True)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)
     count = models.IntegerField(default=0)
         # 게시글 Post에 이미지 추가
     mainphoto = models.ImageField(blank=True, null=True)
     contents = models.TextField()
+
+    class Meta:
+        # 게시글을 최신 순서로 정렬
+        ordering = ['-date']
 
     # 게시글의 제목(title)이 Post object 대신하기
     def __str__(self):
